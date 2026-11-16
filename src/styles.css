@@ -45,6 +45,8 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-color: #eee;
+  border-top: 6px solid #ccc;
+  box-sizing: border-box;
   margin: 10px;
   height: 150px;
   width: 150px;
@@ -86,6 +88,17 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.pokemon-type-badge {
+  align-self: center;
+  background-color: var(--pokemon-type-color, #888);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 2px 14px;
+  text-transform: uppercase;
 }
 
 .pokemon-name {
