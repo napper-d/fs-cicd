@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+const itemColor = (id) => `hsl(${(id * 47) % 360}, 65%, 60%)`
+
 const PokemonList = ({ pokemonList }) => {
   return (
     <div className="list-container">
       {pokemonList.map(({ id, name }) => (
-        <Link key={id} to={`/pokemon/${name}`} className="list-item" style={{ backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`})` }}>
+        <Link key={id} to={`/pokemon/${name}`} className="list-item" style={{ backgroundImage: `url(${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`})`, borderTopColor: itemColor(id) }}>
           <div
             className="list-item-name"
           >
