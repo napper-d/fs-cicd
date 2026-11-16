@@ -38,6 +38,7 @@ jobs:
             path: e2e-tests/playwright-report/
             retention-days: 30
         - name: Trigger deployment
+          if: ${{ github.event_name == 'push' }}
           run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
   tag-release:
     needs: [simple_deployment_pipeline]
