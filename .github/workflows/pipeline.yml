@@ -39,3 +39,13 @@ jobs:
             retention-days: 30
         - name: Trigger deployment
           run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
+  tag-release:
+    needs: [simple_deployment_pipeline]
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@0.75.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
